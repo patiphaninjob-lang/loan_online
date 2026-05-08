@@ -32,6 +32,210 @@
         .progress-bar { height:6px; border-radius:3px; background:#e5e7eb; overflow:hidden; }
         .progress-fill { height:100%; border-radius:3px; transition:width .5s ease; }
         select option { font-family: 'Prompt', sans-serif; }
+        * { box-sizing: border-box; }
+        input, select, textarea, button { font: inherit; }
+        .min-safe-0 { min-width: 0; }
+
+        @media (max-width: 768px) {
+            body { min-height: 100dvh; overflow-x: hidden; }
+            body > .flex.h-screen.overflow-hidden {
+                min-height: 100dvh;
+                height: auto;
+                overflow: visible;
+                flex-direction: column;
+                padding-bottom: 86px;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                z-index: 60;
+                flex-direction: row;
+                align-items: stretch;
+                border-right: 0;
+                border-top: 1px solid #e5e7eb;
+                box-shadow: 0 -10px 30px rgba(15,23,42,.12);
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 > .p-6 {
+                display: none;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 > .p-4.space-y-1 {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 4px;
+                flex: 1;
+                padding: 8px;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 .nav-btn {
+                min-height: 58px;
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                gap: 4px;
+                padding: 8px 4px;
+                border-radius: 12px;
+                font-size: 11px;
+                line-height: 1.2;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 .nav-btn i {
+                width: auto;
+                font-size: 18px;
+            }
+            #sidebar-summary { display: none; }
+            body > .flex.h-screen.overflow-hidden > .w-72 > .border-t {
+                display: none;
+            }
+            body > .flex.h-screen.overflow-hidden > .flex-1 {
+                width: 100%;
+                min-width: 0;
+                overflow: visible;
+            }
+            header {
+                padding: 14px 16px !important;
+                top: 0;
+            }
+            #page-title { font-size: 18px; }
+            #section-dashboard,
+            #section-add,
+            #section-list {
+                padding: 16px !important;
+            }
+            #section-dashboard .grid,
+            #section-add .grid {
+                gap: 12px;
+            }
+            #section-add .max-w-2xl {
+                padding: 16px !important;
+                border-radius: 16px;
+            }
+            #section-add .grid-cols-2,
+            #modal-content .grid-cols-2,
+            #edit-form-content .grid-cols-2 {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            #section-add .col-span-2,
+            #modal-content .col-span-2,
+            #edit-form-content .col-span-2 {
+                grid-column: span 1 / span 1 !important;
+            }
+            #modal-content label.flex,
+            #dashboard-detail-content .flex.justify-between {
+                align-items: flex-start;
+                gap: 10px;
+            }
+            #modal-content label.flex .flex-1,
+            #dashboard-detail-content .flex-1 {
+                min-width: 0;
+            }
+            #modal-content .bg-gray-800.flex {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 6px;
+            }
+            #section-list > .flex {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
+            }
+            #section-list input,
+            #section-list select {
+                width: 100%;
+                min-width: 0;
+            }
+            .loan-card .p-6 { padding: 16px !important; }
+            .loan-card .text-2xl { font-size: 22px; }
+            .loan-card h4 { font-size: 17px; overflow-wrap: anywhere; }
+            .loan-card .grid-cols-2 {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            .loan-card .md\:grid-cols-4 {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+            }
+            .loan-card .flex.justify-between {
+                flex-wrap: wrap;
+            }
+            .loan-card .flex.items-center.gap-2.shrink-0 {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 8px;
+            }
+            .loan-card .text-right {
+                text-align: left;
+            }
+            .loan-card .mt-4.flex.gap-2 {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 44px 44px;
+                gap: 8px;
+            }
+            .dropdown-menu {
+                right: 0;
+                min-width: min(220px, calc(100vw - 32px));
+            }
+            .fixed.inset-0 {
+                align-items: flex-end;
+                padding: 0;
+            }
+            .modal-box {
+                max-width: none !important;
+                width: 100% !important;
+                max-height: 92dvh !important;
+                border-radius: 20px 20px 0 0 !important;
+            }
+            .modal-box > .p-6,
+            .modal-box > div > .p-6,
+            #modal-content,
+            #edit-form-content,
+            #default-modal-content,
+            #history-modal-content,
+            #dashboard-detail-content,
+            #add-loan-amount-form-content {
+                padding: 16px !important;
+            }
+            .modal-box > .flex.justify-between {
+                padding: 16px !important;
+                gap: 12px;
+            }
+            .modal-box h3 {
+                font-size: 16px;
+                line-height: 1.35;
+                overflow-wrap: anywhere;
+            }
+            #history-summary-bar {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .loan-card .md\:grid-cols-4,
+            .loan-card .grid-cols-2 {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            .loan-card .mt-4.flex.gap-2 {
+                grid-template-columns: minmax(0, 1fr) 44px;
+            }
+            .loan-card .mt-4.flex.gap-2 button:last-child {
+                grid-column: span 2;
+            }
+            #modal-content .grid-cols-3 {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            #modal-content label.flex {
+                flex-wrap: wrap;
+            }
+            #modal-content label.flex > span:last-child {
+                width: 100%;
+                padding-left: 28px;
+            }
+            .stat-chip,
+            .loan-card .rounded-xl.p-3 {
+                text-align: left;
+            }
+        }
     </style>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -150,7 +354,7 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1.5 text-gray-700">วันที่ปล่อยกู้ <span class="text-red-400">*</span></label>
-                        <input type="date" id="loan-date" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        <input type="text" id="loan-date" inputmode="numeric" placeholder="dd/mm/yyyy" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1.5 text-gray-700">วันที่ต้องส่งดอกทุกเดือน <span class="text-red-400">*</span></label>
@@ -236,7 +440,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1.5 text-gray-700">วันที่เพิ่มยอด <span class="text-red-400">*</span></label>
-                    <input type="date" id="add-loan-date" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <input type="text" id="add-loan-date" inputmode="numeric" placeholder="dd/mm/yyyy" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-1.5 text-gray-700">หมายเหตุ</label>
@@ -481,6 +685,28 @@ function formatDate(d) {
 }
 function formatMoney(n) { return Math.round(n).toLocaleString(); }
 function todayStr() { return new Date().toISOString().split('T')[0]; }
+function toDisplayDate(value) {
+    if (!value) return '';
+    const parts = String(value).split('-');
+    if (parts.length === 3) return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    return value;
+}
+function toIsoDate(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+    const match = raw.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
+    if (!match) return '';
+    const day = parseInt(match[1], 10);
+    const month = parseInt(match[2], 10);
+    let year = parseInt(match[3], 10);
+    if (year > 2400) year -= 543;
+    const date = new Date(year, month - 1, day);
+    if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) return '';
+    return `${year.toString().padStart(4, '0')}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+}
+function getDateInputValue(id) { return toIsoDate(document.getElementById(id)?.value); }
+function setDateInputValue(id, value) { document.getElementById(id).value = toDisplayDate(value); }
 function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 function closeAllDropdowns() { document.querySelectorAll('.dropdown-menu').forEach(m=>m.classList.remove('open')); }
 document.addEventListener('click', e => { if (!e.target.closest('.dropdown-wrapper')) closeAllDropdowns(); });
@@ -564,7 +790,7 @@ function addLoan() {
     const borrower = document.getElementById('borrower').value.trim();
     const amount   = parseFloat(document.getElementById('amount').value);
     const interest = parseFloat(document.getElementById('interest').value);
-    const loanDate = document.getElementById('loan-date').value;
+    const loanDate = getDateInputValue('loan-date');
     const dueDay   = parseInt(document.getElementById('due-day').value);
     const note     = document.getElementById('note').value.trim();
 
@@ -592,7 +818,7 @@ function addLoan() {
 
     ['borrower','amount','note'].forEach(id=>document.getElementById(id).value='');
     document.getElementById('interest').value = '10';
-    document.getElementById('loan-date').value = todayStr();
+    setDateInputValue('loan-date', todayStr());
     document.getElementById('due-day').value = '5';
     document.getElementById('interest-preview').classList.add('hidden');
 
@@ -611,7 +837,7 @@ function openAddLoanAmountModal(id) {
 
     document.getElementById('add-loan-amount-modal-heading').textContent = `เพิ่มยอดการยืม — ${loan.emoji||''} ${loan.borrower}`;
     document.getElementById('add-amount').value = '';
-    document.getElementById('add-loan-date').value = todayStr();
+    setDateInputValue('add-loan-date', todayStr());
     document.getElementById('add-note').value = '';
 
     document.getElementById('add-loan-amount-modal').classList.remove('hidden');
@@ -622,7 +848,7 @@ function addLoanAmount() {
     if (!loan) return;
 
     const amount = parseFloat(document.getElementById('add-amount').value);
-    const loanDate = document.getElementById('add-loan-date').value;
+    const loanDate = getDateInputValue('add-loan-date');
     const note = document.getElementById('add-note').value.trim();
 
     if (!amount || !loanDate) return alert("กรุณากรอกจำนวนเงินและวันที่");
@@ -793,7 +1019,7 @@ function openPaymentModal(id) {
         <div class="grid grid-cols-2 gap-3">
             <div>
                 <label class="block text-xs font-medium mb-1 text-gray-600">วันที่ชำระ</label>
-                <input type="date" id="pay-date" value="${todayStr()}" class="w-full border rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <input type="text" id="pay-date" inputmode="numeric" placeholder="dd/mm/yyyy" value="${toDisplayDate(todayStr())}" class="w-full border rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
             </div>
             <div>
                 <label class="block text-xs font-medium mb-1 text-gray-600">หมายเหตุ</label>
@@ -852,7 +1078,7 @@ function savePayment(id) {
     const loan = loans.find(l => l.id === id);
     if (!loan) return;
 
-    const payDate = document.getElementById('pay-date').value;
+    const payDate = getDateInputValue('pay-date');
     const payNote = document.getElementById('pay-note').value.trim();
     const monthly = fixedMonthlyInterest(loan);
 
@@ -939,7 +1165,7 @@ function openDefaultModal(id) {
         </div>
         <div>
             <label class="block text-sm font-medium mb-1.5">งวดที่ผิดนัด (วันครบกำหนด)</label>
-            <input type="date" id="default-date" value="${todayStr()}" class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-300">
+            <input type="text" id="default-date" inputmode="numeric" placeholder="dd/mm/yyyy" value="${toDisplayDate(todayStr())}" class="w-full border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-300">
         </div>
         <div>
             <label class="block text-sm font-medium mb-1.5">จำนวนเงินดอกค้าง (฿)</label>
@@ -974,7 +1200,7 @@ function saveDefault() {
     const loan = loans.find(l => l.id === currentDefaultId);
     if (!loan) return;
     const note = document.getElementById('default-note').value.trim();
-    const date = document.getElementById('default-date').value;
+    const date = getDateInputValue('default-date');
     const amount = parseFloat(document.getElementById('default-amount').value) || fixedMonthlyInterest(loan);
     const d = new Date(date);
     const label = d.toLocaleDateString('th-TH', { month: 'long', year: 'numeric' });
@@ -1188,7 +1414,7 @@ function editPayment(loanId, payIdx) {
         <div class="grid grid-cols-2 gap-3">
             <div>
                 <label class="text-xs font-medium text-gray-600 mb-1 block">วันที่</label>
-                <input type="date" id="hist-pay-date" value="${escapeAttr(p.date || todayStr())}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <input type="text" id="hist-pay-date" inputmode="numeric" placeholder="dd/mm/yyyy" value="${escapeAttr(toDisplayDate(p.date || todayStr()))}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
             </div>
             <div>
                 <label class="text-xs font-medium text-gray-600 mb-1 block">ประเภท</label>
@@ -1235,7 +1461,7 @@ function savePaymentEdit() {
     const type = document.getElementById('hist-pay-type').value;
     const amount = parseFloat(document.getElementById('hist-pay-amount').value) || 0;
     const principalAmount = parseFloat(document.getElementById('hist-pay-principal')?.value) || 0;
-    p.date = document.getElementById('hist-pay-date').value || todayStr();
+    p.date = getDateInputValue('hist-pay-date') || todayStr();
     p.type = type;
     p.amount = amount;
     p.note = document.getElementById('hist-pay-note').value.trim();
@@ -1272,7 +1498,7 @@ function editDefault(loanId, defId) {
         </div>
         <div>
             <label class="text-xs font-medium text-gray-600 mb-1 block">วันที่</label>
-            <input type="date" id="hist-def-date" value="${escapeAttr(d.date || todayStr())}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
+            <input type="text" id="hist-def-date" inputmode="numeric" placeholder="dd/mm/yyyy" value="${escapeAttr(toDisplayDate(d.date || todayStr()))}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
         </div>
         <div>
             <label class="text-xs font-medium text-gray-600 mb-1 block">เหตุผล / หมายเหตุ</label>
@@ -1291,7 +1517,7 @@ function saveDefaultEdit() {
     const loan = loans.find(l => l.id === loanId);
     const d = loan?.defaults?.find(x => x.id === id);
     if (!loan || !d) return;
-    d.date = document.getElementById('hist-def-date').value || todayStr();
+    d.date = getDateInputValue('hist-def-date') || todayStr();
     d.note = document.getElementById('hist-def-note').value.trim() || 'ไม่ระบุเหตุผล';
     saveLoans();
     closeModal('edit-modal');
@@ -1313,7 +1539,7 @@ function editOverdueSlot(loanId, slotId) {
         <div class="grid grid-cols-2 gap-3">
             <div>
                 <label class="text-xs font-medium text-gray-600 mb-1 block">วันครบกำหนด</label>
-                <input type="date" id="hist-slot-date" value="${escapeAttr(slot.dueDate || todayStr())}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <input type="text" id="hist-slot-date" inputmode="numeric" placeholder="dd/mm/yyyy" value="${escapeAttr(toDisplayDate(slot.dueDate || todayStr()))}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
             </div>
             <div>
                 <label class="text-xs font-medium text-gray-600 mb-1 block">ยอดค้าง (฿)</label>
@@ -1341,7 +1567,7 @@ function saveOverdueSlotEdit() {
     const loan = loans.find(l => l.id === loanId);
     const slot = loan?.overdueSlots?.find(s => s.id === id);
     if (!loan || !slot) return;
-    slot.dueDate = document.getElementById('hist-slot-date').value || todayStr();
+    slot.dueDate = getDateInputValue('hist-slot-date') || todayStr();
     slot.amount = parseFloat(document.getElementById('hist-slot-amount').value) || 0;
     slot.monthLabel = document.getElementById('hist-slot-label').value.trim() || monthLabelFromDate(slot.dueDate);
     slot.defaultNote = document.getElementById('hist-slot-note').value.trim();
@@ -1811,7 +2037,7 @@ function editLoan(id) {
             </div>
             <div class="col-span-2">
                 <label class="text-xs font-medium text-gray-600 mb-1 block">ครบกำหนดถัดไป</label>
-                <input type="date" id="edit-next-due" value="${loan.nextInterestDue}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <input type="text" id="edit-next-due" inputmode="numeric" placeholder="dd/mm/yyyy" value="${toDisplayDate(loan.nextInterestDue)}" class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300">
             </div>
             <div class="col-span-2">
                 <label class="text-xs font-medium text-gray-600 mb-1 block">หมายเหตุ</label>
@@ -1838,7 +2064,7 @@ function saveEdit() {
     loan.principal = parseFloat(document.getElementById('edit-principal').value) || loan.principal;
     loan.interestRate = parseFloat(document.getElementById('edit-interest').value) || loan.interestRate;
     loan.dueDay = parseInt(document.getElementById('edit-due-day').value) || loan.dueDay;
-    loan.nextInterestDue = document.getElementById('edit-next-due').value;
+    loan.nextInterestDue = getDateInputValue('edit-next-due');
     loan.note = document.getElementById('edit-note').value.trim();
     saveLoans();
     closeModal('edit-modal');
@@ -1885,7 +2111,7 @@ function renderAll() {
 // INIT
 // ─────────────────────────────────────────
 window.onload = () => {
-    document.getElementById('loan-date').value = todayStr();
+    setDateInputValue('loan-date', todayStr());
     loadLoans();
 };
 </script>
